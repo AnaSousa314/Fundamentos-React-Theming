@@ -9,7 +9,7 @@ import themes from './styles/themes';
 function App() {
   return (
     <>
-      <ThemeProvider theme={themes.light}>
+      <ThemeProvider theme={themes.dark}>
         <GlobalStyle />
         <Layout />
       </ThemeProvider>
