@@ -10,6 +10,14 @@ export default function Layout({onToggleTheme,selectedTheme }) {
   //   console.debug('useEffect dentro do <Layout />')
   // },[selectedTheme])
 
+  useEffect(()=>{
+    console.debug({selectedTheme});
+
+    // através dessa função de retorno eu consigo saber quando o componente for desmontado da tela, tirado
+    return() => {
+      console.debug('<Layout /> saiu da tela')
+    }
+  },[selectedTheme])
   return (
     <>
       <Header onToggleTheme={onToggleTheme} selectedTheme={selectedTheme}/>

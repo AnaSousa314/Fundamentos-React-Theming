@@ -25,10 +25,10 @@ function App() {
 
   // função de efeito
   // sempre q hover uma renderização o useEffect vai rodar
-  useEffect(() => {
-    console.debug('useEffect executou')
-    localStorage.setItem('theme', JSON.stringify(theme))
-  },[theme])//para executar apenas uma vez depois do mount, é só colocar esse array de dependencias vazio
+  // useEffect(() => {
+  //   console.debug('useEffect executou')
+  //   localStorage.setItem('theme', JSON.stringify(theme))
+  // },[theme])//para executar apenas uma vez depois do mount, é só colocar esse array de dependencias vazio
   // com esse array vazio o useEffect só será executado uma vez
   // com algum elemnto dentro do array ele executará toda vez que houver uma alteração no state ou na prop q estiver no array
 
@@ -38,10 +38,13 @@ function App() {
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         {/* <button onClick={() => setQualquer(Math.random())}>Olá</button> */}
-        <Layout 
-          onToggleTheme={handleToogleTheme}
-          selectedTheme={theme}
-        />
+        <button onClick={handleToogleTheme}>toggle</button>
+        {theme === 'dark' && (
+          <Layout 
+            onToggleTheme={handleToogleTheme}
+            selectedTheme={theme}
+          />
+        )}
       </ThemeProvider>
     </>
   );
