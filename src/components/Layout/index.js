@@ -18,6 +18,20 @@ export default function Layout({onToggleTheme,selectedTheme }) {
   //     console.debug('<Layout /> saiu da tela')
   //   }
   // },[selectedTheme])
+
+  useEffect(()=>{
+    // document.addEventListener('scroll', ()=>{
+    //   console.debug('scrollou')
+    // })
+    function handleScroll(){
+      console.debug('scrollou')
+    }
+
+    document.addEventListener('scroll', handleScroll);
+
+    //  remove o event quando o componente é desmontado da tela
+    return () => document.removeEventListener('scroll', handleScroll)
+  },[])
   return (
     <>
       <Header onToggleTheme={onToggleTheme} selectedTheme={selectedTheme}/>

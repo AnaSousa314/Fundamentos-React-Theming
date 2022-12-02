@@ -78,17 +78,18 @@ function App() {
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         {/* <button onClick={() => setQualquer(Math.random())}>Olá</button> */}
-        {/* <button onClick={handleToogleTheme}>toggle</button> */}
-        {/* {theme === 'dark' && (
+        <button onClick={handleToogleTheme}>toggle</button>
+        {theme === 'dark' && (
           <Layout 
             onToggleTheme={handleToogleTheme}
             selectedTheme={theme}
           />
-        )} */}
-        <Layout 
+        )}
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        {/* <Layout 
           onToggleTheme={handleToogleTheme}
           selectedTheme={theme}
-        />
+        /> */}
       </ThemeProvider>
     </>
   );
