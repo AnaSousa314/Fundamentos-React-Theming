@@ -1,4 +1,4 @@
-import React,{useState,useMemo, useEffect, useLayoutEffect} from 'react';
+import React,{useState,useMemo, useEffect, useLayoutEffect, useRef} from 'react';
 import {ThemeProvider} from 'styled-components';
 
 import GlobalStyle from './styles/global';
@@ -23,6 +23,8 @@ function App() {
       :'dark')
   }
 
+  const firstRender = useRef(true);
+
   // função de efeito
   // sempre q hover uma renderização o useEffect vai rodar
   //ele ASSÍNCRONA
@@ -36,14 +38,14 @@ function App() {
   // console.debug(qualquer)
 
   // esse é executado antes do react jogar as mudanças na tela do usuário. ele é SÍNCRONO, ele trava a renderização
-  useLayoutEffect(() =>{
-    console.log('useLayoutEffect');
+  // useLayoutEffect(() =>{
+  //   console.log('useLayoutEffect');
 
-    for (let i = 0; i <= 15000; i++) {
-      console.debug(i)
+  //   for (let i = 0; i <= 15000; i++) {
+  //     console.debug(i)
       
-    }
-  },[theme]) 
+  //   }
+  // },[theme]) 
 
   // useEffect(() => {
   //     console.debug('tema mudou')
@@ -60,6 +62,16 @@ function App() {
     // useEffect(() => {
     //   console.debug('todo render')
     // })
+
+    useEffect(()=>{
+      // assim o useEffect nao vai executar na primeira renderização
+      if (firstRender.current) {
+        firstRender.current = false;
+        return;
+      }
+
+      console.debug({ theme });
+    },[theme])
 
   return (
     <>
